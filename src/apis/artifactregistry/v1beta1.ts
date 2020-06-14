@@ -199,6 +199,62 @@ export namespace artifactregistry_v1beta1 {
     updateTime?: string | null;
   }
   /**
+   * Error information explaining why a package was not imported.
+   */
+  export interface Schema$GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo {
+    /**
+     * The detailed error status.
+     */
+    error?: Schema$Status;
+    /**
+     * Google Cloud Storage location requested.
+     */
+    gcsSource?: Schema$GoogleDevtoolsArtifactregistryV1alpha1GcsSource;
+  }
+  /**
+   * Google Cloud Storage location for the input content.
+   */
+  export interface Schema$GoogleDevtoolsArtifactregistryV1alpha1GcsSource {
+    /**
+     * Cloud Storage paths URI (e.g., gs://my_bucket//my_object).
+     */
+    uris?: string[] | null;
+  }
+  /**
+   * The response message from importing artifacts.
+   */
+  export interface Schema$GoogleDevtoolsArtifactregistryV1alpha1ImportArtifactsResponse {
+    /**
+     * Detailed error info for packages that were not imported.
+     */
+    errors?: Schema$GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo[];
+    /**
+     * The packages updated.
+     */
+    packages?: Schema$GoogleDevtoolsArtifactregistryV1alpha1Package[];
+  }
+  /**
+   * Packages are named collections of versions.
+   */
+  export interface Schema$GoogleDevtoolsArtifactregistryV1alpha1Package {
+    /**
+     * The time when the package was created.
+     */
+    createTime?: string | null;
+    /**
+     * The display name of the package.
+     */
+    displayName?: string | null;
+    /**
+     * The name of the package, for example: &quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1&quot;.
+     */
+    name?: string | null;
+    /**
+     * The time when the package was last updated. This includes publishing a new version of the package.
+     */
+    updateTime?: string | null;
+  }
+  /**
    * A hash of file content.
    */
   export interface Schema$Hash {
